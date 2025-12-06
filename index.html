@@ -1,0 +1,106 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>注音闖關練習｜我會ㄅㄆㄇ</title>
+
+  <!-- 字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="app" aria-labelledby="page-title">
+    <section class="app__board" aria-label="注音練習遊戲區">
+      <!-- 右上角關閉按鈕 -->
+      <button
+        id="closeButton"
+        class="close-btn"
+        type="button"
+        aria-label="關閉遊戲"
+      >
+        <span class="ruby-text">
+          <ruby>關<rt>ㄍㄨㄢ</rt></ruby>
+          <ruby>閉<rt>ㄅㄧˋ</rt></ruby>
+        </span>
+      </button>
+
+      <!-- 藍色框：標題（內容由 JS 填入，含注音） -->
+      <header class="title-box">
+        <h1 id="page-title" class="title-box__text"></h1>
+      </header>
+
+      <!-- 綠色框：注音顯示區 -->
+      <section class="symbol-area" aria-live="polite">
+        <span id="symbolText" class="symbol-area__char"></span>
+
+        <!-- 錯誤動畫 -->
+        <img
+          id="explosionImage"
+          class="symbol-area__explosion"
+          src="images/explosion.gif"
+          alt="時間到囉！注音爆炸了～"
+        />
+
+        <!-- 關閉確認動畫 -->
+        <img
+          id="day21Image"
+          class="symbol-area__day21"
+          src="images/day21.gif"
+          alt="確定要關閉嗎？小提醒動畫"
+        />
+      </section>
+
+      <!-- 一般模式：倒數 + 開始/完成 -->
+      <section id="mainControlRow" class="control-row">
+        <div class="timer-box" aria-label="倒數計時">
+          <span class="timer-box__label ruby-text">
+            <ruby>倒<rt>ㄉㄠˋ</rt></ruby>
+            <ruby>數<rt>ㄕㄨˇ</rt></ruby>
+          </span>
+          <span id="timerValue" class="timer-box__value">12</span>
+          <span class="timer-box__unit ruby-text">
+            <ruby>秒<rt>ㄇㄧㄠˇ</rt></ruby>
+          </span>
+        </div>
+
+        <button
+          id="actionButton"
+          class="action-box"
+          type="button"
+          aria-label="開始或完成這一題"
+        >
+          <span id="actionText" class="action-box__text"></span>
+        </button>
+      </section>
+
+      <!-- 關閉確認模式：取消 + 關閉 -->
+      <section id="confirmControlRow" class="control-row control-row--confirm">
+        <button
+          id="cancelExitButton"
+          class="action-box action-box--orange"
+          type="button"
+        >
+          <span class="action-box__text ruby-text">
+            <ruby>取<rt>ㄑㄩˇ</rt></ruby>
+            <ruby>消<rt>ㄒㄧㄠˉ</rt></ruby>
+          </span>
+        </button>
+        <button
+          id="confirmExitButton"
+          class="action-box"
+          type="button"
+        >
+          <span class="action-box__text ruby-text">
+            <ruby>關<rt>ㄍㄨㄢ</rt></ruby>
+            <ruby>閉<rt>ㄅㄧˋ</rt></ruby>
+          </span>
+        </button>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
